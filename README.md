@@ -1,6 +1,12 @@
-# Parallel Job Scheduler (Python)
+# Job Scheduler (Python)
 
 This project implements a simple job scheduling system that demonstrates the difference between sequential and parallel execution using Python threads. It allows users to add tasks, execute them sequentially or in parallel, and measure performance improvements such as speedup and efficiency.
+
+## Screenshot — Menu
+
+Below is a screenshot of the interactive menu used by the scheduler.
+
+![Menu Screenshot](menu.png)
 
 ## Features
 
@@ -28,7 +34,6 @@ No external libraries are required beyond the Python standard library.
 1. Save the script as `scheduler.py`
 2. Open a terminal in the same directory
 3. Run:
-
 
 ## Usage Instructions
 
