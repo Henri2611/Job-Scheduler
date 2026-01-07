@@ -124,13 +124,18 @@ def menu():
                 Tp = parallel_scheduler(jobs, workers)
 
                 Ts = sequential_scheduler(jobs)
-                speedup = Ts / Tp
-                efficiency = speedup / workers
+                if Tp == 0:
+                    print("\nParallel time was too small to measure accurately (≈0). Speedup cannot be computed.")
+                else:
+                    speedup = Ts / Tp
+                    print(f"\nSpeedup = {speedup:.2f}x")
 
-                print("------ PERFORMANCE METRICS ------")
-                print(f"Speedup = {round(speedup, 3)}")
-                print(f"Efficiency = {round(efficiency, 3)}")
-                print("---------------------------------")
+                    efficiency = speedup / workers
+
+                    print("------ PERFORMANCE METRICS ------")
+                    print(f"Speedup = {round(speedup, 3)}")
+                    print(f"Efficiency = {round(efficiency, 3)}")
+                    print("---------------------------------")
 
         # -------- CLEAR JOBS --------
         elif choice == "6":
