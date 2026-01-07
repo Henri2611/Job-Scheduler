@@ -25,6 +25,20 @@ A command-line menu interface is used to interact with the scheduler. Link to th
 
 [Menu Screenshot](menu.png)
 
+Example menu layout:
+
+```
+=========== PARALLEL & DISTRIBUTED JOB SCHEDULER ===========
+1. Add compute task (heavy math)
+2. View job queue
+3. Run sequential execution
+4. Run parallel execution (multiprocessing)
+5. Run distributed execution (multi-node simulation)
+6. Clear job queue
+7. Exit
+=============================================================
+```
+
 ## Features
 
 - Interactive command-line interface
