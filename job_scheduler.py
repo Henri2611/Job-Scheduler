@@ -7,9 +7,7 @@ from multiprocessing import Process, Queue, cpu_count
 # =====================================================
 
 def heavy_task(n):
-    """
-    Simple CPU-intensive computation to simulate workload.
-    """
+    
     s = 0
     for i in range(n):
         s += i * i
