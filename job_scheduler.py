@@ -73,7 +73,7 @@ def menu():
     job_counter = 1
 
     while True:
-        print("\n====== PARALLEL JOB SCHEDULER ======")
+        print("\n====== PARALLEL AND SEQUENTIAL JOB SCHEDULER ======")
         print("1. Add compute task (heavy math)")
         print("2. Add prime-check task")
         print("3. View job list")
