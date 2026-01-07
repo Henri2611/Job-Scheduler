@@ -1,94 +1,129 @@
-# Job Scheduler (Python)
 
-This project implements a simple job scheduling system that demonstrates the difference between sequential and parallel execution using Python threads. It allows users to add tasks, execute them sequentially or in parallel, and measure performance improvements such as speedup and efficiency.
+# Parallel & Distributed Job Scheduler (Python)
+
+This project implements a hybrid job scheduling system that demonstrates:
+
+- sequential execution
+- parallel execution using multiprocessing
+- distributed execution using simulated worker nodes
+
+Users can add computational jobs, execute them using different execution models, and measure performance improvements such as speedup and efficiency.
+
+## System Overview
+
+The program supports three execution modes:
+
+- Sequential: jobs run one after another on a single CPU
+- Parallel: jobs run simultaneously across CPU cores using multiprocessing
+- Distributed: jobs are sent to multiple simulated nodes (separate processes)
+
+The system uses ProcessPoolExecutor for parallel CPU execution and multiprocessing.Process + Queue to simulate distributed nodes.
 
 ## Screenshot — Menu
 
-Below is a screenshot of the interactive menu used by the scheduler.
+A command-line menu interface is used to interact with the scheduler. Link to the menu image:
 
-![Menu Screenshot](menu.png)
+[Menu Screenshot](menu.png)
 
 ## Features
 
-- Interactive command-line menu
-- Supports two task types:
-  - Prime number checking
-  - Heavy mathematical computation (sum of squares)
-- Sequential execution mode
-- Parallel execution mode using ThreadPoolExecutor
-- Automatic measurement of:
-  - Sequential time
-  - Parallel time
-  - Speedup
-  - Efficiency
-- Ability to clear jobs or exit
+- Interactive command-line interface
+- Add multiple compute-intensive jobs
+- Three execution models: sequential, parallel multiprocessing, distributed simulated nodes
+- Performance evaluation: sequential time, parallel time, speedup, efficiency
+- Clear jobs and rerun experiments
+
+## Tasks Supported
+
+Workload: a CPU-intensive mathematical task (sum of squares loop) that scales with N. This provides a controlled synthetic workload suitable for benchmarking.
+
+## Dataset Used
+
+No external datasets are required. The project uses synthetic numeric workloads (integer N denoting computation size).
+
+Example job: "compute heavy task with N = 200000".
 
 ## Requirements
 
 - Python 3.8 or higher
+- Standard library modules: multiprocessing, concurrent.futures, time
 
-No external libraries are required beyond the Python standard library.
+Works on Windows, Linux, and macOS. No external pip packages required.
 
 ## How to Run
 
-1. Save the script as `scheduler.py`
-2. Open a terminal in the same directory
-3. Run:
+1. Ensure the script is saved as scheduler.py (or run job_scheduler.py if present).
+2. Open a terminal in the project directory.
+
+Windows:
+```
+cd path\to\folder
+python scheduler.py
+```
+
+Linux / macOS:
+```
+cd /path/to/folder
+python3 scheduler.py
+```
+
+The interactive menu will start. No compilation is required.
 
 ## Usage Instructions
 
-The main menu provides the following options:
+Menu options:
 
-1. Add compute task  
-   - Adds a heavy mathematical computation job
-2. Add prime-check task  
-   - Adds a job to test if a number is prime
-3. View job list  
-   - Displays all queued jobs
-4. Run sequential execution  
-   - Jobs run one after another on a single worker
-5. Run parallel execution  
-   - Jobs run concurrently using multiple worker threads
-6. Clear jobs  
-   - Removes all queued jobs
-7. Exit  
-   - Closes the program
+1. Add compute task — specify computation size (e.g., 200000)
+2. View job queue — displays pending jobs
+3. Run sequential execution — baseline performance
+4. Run parallel execution — uses multiple CPU cores; reports speedup and efficiency
+5. Run distributed execution — jobs assigned to simulated nodes
+6. Clear job queue
+7. Exit
 
 ## Performance Metrics Explained
 
-After running in parallel mode, the program also runs the same jobs sequentially to compute:
+After running in parallel mode, the program runs sequentially to compare:
 
-- Speedup  
-  `speedup = sequential_time / parallel_time`
+- Speedup = sequential_time / parallel_time
+- Efficiency = speedup / number_of_workers
 
-- Efficiency  
-  `efficiency = speedup / number_of_workers`
-
-These metrics help analyze the advantage of parallel execution.
+These metrics help evaluate parallel scaling.
 
 ## Educational Objectives
 
-This program is suitable for:
+This project demonstrates:
 
-- Parallel and distributed systems courses
-- Operating systems and scheduling demonstrations
-- Learning Python concurrency concepts
-- Benchmarking small CPU-bound tasks
+- job scheduling
+- CPU parallelism using multiprocessing
+- distributed execution concepts via simulated nodes
+- load distribution and performance benchmarking
 
-It illustrates core concepts including:
+## Weekly Progress Summary (4 Weeks)
 
-- Job queues
-- Worker threads
-- Task scheduling
-- Parallel vs sequential execution
-- Performance measurement
+Week 1 — Task Analysis & Design
+- identified requirements and workload
+- designed job queue, worker model, and menu interface
+
+Week 2 — Parallel Implementation
+- implemented sequential scheduler and multiprocessing parallel scheduler
+- tested CPU-bound execution and collected baseline timings
+
+Week 3 — Distributed Simulation
+- implemented simulated nodes using processes and a task queue
+- added node shutdown logic and tested distributed behavior
+
+Week 4 — Integration & Evaluation
+- integrated schedulers into a menu system
+- added performance reporting and tested with varying workload sizes
 
 ## Limitations
 
-- Uses threads, not processes
-- CPU-bound tasks may be affected by the Global Interpreter Lock (GIL)
-- Designed for teaching and demonstration, not production workloads
+- Distributed nodes are simulated on a single machine (no network)
+- Uses processes rather than networked machines
+- CPU-bound tasks may be affected by system scheduling and available cores
 
 ## License
 
-Free for educational and personal use.
+Free for education and personal learning purposes.
+  
